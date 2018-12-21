@@ -1,0 +1,124 @@
+<div class="ctrx_m1_container">
+    <div class="m1forms">
+        <div class="first_one">
+            <div class="logo-wrap" style="float: left;">
+                <img src="./assets/img/logo.png" style="width:159px" alt="logo">
+            </div>
+            <div class="title" style="float: left; width: calc(100% - 210px);	margin-left: 50px; margin-top: 60px;">
+                <span style="font-size: 30px; font-weight: 600;	float: left;">Suspicious Activity Report</span>
+                <span style="float: right;">Version Number: 1.2</span>
+                <div style="clear: both;"></div>
+                <p>OMB No. 1506-0065</p>
+                <p>OMB No. 1506-0001, 1506-0006, 1506-0015, 1506-0019, 1506-0029, and 1506-0061 (Regulations)</p>
+                <!-- <div class="first_ul" style="background: #fff; border: 1px solid #000;">
+                    <p style="border-bottom: 1px solid #000; padding-bottom: 15px; padding-left: 10px; padding-top: 15px;	margin-top: 0; margin-bottom: 0;">Steps to submit</p>
+                    <ol style="padding-left: 80px;">
+                        <li>Complete the report in its entirety with all requested or required data known to the filer.</li>
+                        <li>Complete the report in its entirety with all requested or required data known to the filer.</li>
+                        <li>Click "Validate" to ensure proper formatting and that all required fields are completed.</li>
+                        <li>Click "Sign with PIN" and enter your 8-digit PIN to electronically sign the report.</li>
+                        <li>Click "Save" to save a local copy of the report.</li>
+                        <li>Click "Print" (optional) to print a paper copy of the report for record keeping purposes.</li>
+                        <li>Click "Submit" and go to your "Track Status" to confirm acceptance.</li>
+                    </ol>
+                </div> -->
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+       
+        <div class="row forms" >
+            <form action="" method="">
+
+                <section class="m1_num1 ng-invalid">
+                    <div class="first_form_text">
+                        <div class="fff">
+                            <label for="filing_name">Filing name</label>
+                        </div>
+                        <input id="filing_name" name="filing_name" type="text">
+                    </div>
+                </section>
+                <section class="m1_num2">
+                    <div class="second_form_checkbox">
+                        <div class="fff">
+                            <label>*1 Type of filing <br> (Check all that apply)</label>
+                        </div>
+                        <div class="checks_all">
+                            <div class="checks_1">
+                                <mat-checkbox  class="example-margin" >Initial report</mat-checkbox>
+                                <mat-checkbox  class="example-margin" >Continuing activity report</mat-checkbox>                                
+                            </div>
+                            <div class="checks_2">
+                                <mat-checkbox  class="example-margin" >Correct/Amend prior report</mat-checkbox>
+                                <mat-checkbox  class="example-margin">Join report</mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m1_error">
+                        <span>ERROR</span>
+                    </div>
+                </section>
+                <section class="second_form_text_2">
+                    <div class="m1_num3">
+                        <div class="sec_form_1">
+                            <div class="fff">
+                                <label for="prior_report">Prior report BSA Identification Number(BSA ID) </label>
+                            </div>
+                            <input id="prior_report" name="prior_report" type="text"> <br>
+                        </div>
+
+                    </div>
+
+                    <div class="m1_num4" style="margin-bottom: 50px">
+                        <div class="sec_form_2">
+                            <div class="fff">
+                                <label for="attachment">2 Filing Institution Note to FinCEN</label>
+                            </div>
+                            <input id="fincen" name="fincen" type="text">
+                        </div>
+                    </div>
+                    
+                    <div class="m1_num4">
+                        <div class="sec_form_2">
+                            <div class="fff">
+                                <label for="attachment">Attachment</label>
+                            </div>
+                            <input id="attachment" name="attachment" type="text">
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <section class="first_buttons">
+                    <div class="fff last_fff"></div>
+                    <div class="all_first_btns">
+                        <button class="m1_btn"><div class="btn_div">Add Attachment</div></button>
+                        <button class="m1_btn"><div class="btn_div">Delete Attachment</div></button>
+                        <button class="m1_btn"><div class="btn_div">View/Save Attachment</div></button>
+                    </div>
+                </section>
+
+                <section class="second_buttons">
+                    <button class="m1_btn m1_btn_2"><div class="btn_div">Save</div></button>
+                    <button class="m1_btn m1_btn_2"><div class="btn_div">Validate</div></button>
+                    <button class="m1_btn m1_btn_2"><div class="btn_div">Submit</div></button>
+                    <button class="m1_btn m1_btn_2"><div class="btn_div">Print</div></button>
+                </section>
+
+                <div class="m1_sign_btn">
+                    <p>By providing my PIN, I acknowledge that I am electronically signing the BSA report submitted.</p>
+                    <div class="sign_with_pin">
+                        <button class="sign_width_pin_btn m1_btn">
+                            <div class="btn_div">
+                                Sign with PIN
+                            </div>
+                        </button>
+                        <p>This PDF is intended for testing purpose only. Please do not use it in a production environment.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+

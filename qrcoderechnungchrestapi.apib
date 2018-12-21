@@ -1,0 +1,649 @@
+FORMAT: 1A
+HOST: https://qrcoderechnung.ch/
+
+# QRCodeRechnung.ch API
+
+Welcome to the RESTful API definition for QRCodeRechnung.ch. This API allows you creating Swiss QRCode Payment slips according to ISO20022. 
+
+If you have any questions or encounter problems [email us](mailto:developer@qrcoderechnung.ch)
+
+We already developed two wrappers for an easy and convenient implementation into your application.
+- PHP [https://github.com/welytics/qrcoderechnung_php](https://github.com/welytics/qrcoderechnung_php)
+- C# [https://github.com/welytics/qrcoderechnung_csharp](https://github.com/welytics/qrcoderechnung_csharp)
+
+## Authenticate [/api/auth/login{?email,password,lang}]
+
+### Obtain token [POST]
+
+Before doing authorized calls to the QRCodeRechnung API, you must first acquire a valid token. You do so by calling the "Obtain token" endpoint with your valid API credentials. When a valid token is received, you must specify this token in an "Authorization" header, in the following format:
+
+#### "Authorization": "Bearer {token}"
+
++ Parameters
+    + email (string) - The API users email
+    + password (string) - The API users password
+    + lang (string, optional) - Change language. Supported are English and German
+
++ Response 200 (application/json)
+
+        [
+            {
+                "errors": false,
+                "data": {
+                    "user": {
+                        "name": "John",
+                        "last_name": "Doe",
+                        "email": "John@doe.com",
+                        "company": "",
+                        "address": "",
+                        "zip": "",
+                        "city": "",
+                        "subscribed": true,
+                    },
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc3RhcnR1cC5sb2NhbC9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTQ4NzI2Mjg0NCwiZXhwIjoxNDg3MjY2NDQ0LCJuYmYiOjE0ODcyNjI4NDQsImp0aSI6IjJZbVZFVTYyNWFDT1F6QWQiLCJzdWIiOjF9.NIxLZiNHiuq0yPMB0JsLW8xGB7z5Rz65UxwIwAllEl8",
+                    "message": "Authentication ok - welcome to QRCodeRechnung.ch"
+                }
+            }
+        ]
+        
++ Response 422 (application/json)
+
+        [
+            {
+                "message": {
+                    "email": [
+                        "The email must be a valid email address.",
+                        "The email field is required."
+                    ],
+                    "password": [
+                        "The password must be at least 8 characters.",
+                        "The password field is required."
+                    ],
+                },
+                "status":"error"
+            }
+        ]
+
+
+## Account [/api/auth/register{?name,email,password,password_confirmation,lang}]
+
+### Register [POST]
+
+You can create a new user using this endpoint
+
++ Parameters
+    + name (string) - Name of new user. Min. 3 characters
+    + email (string) - The API users email
+    + password (string) - The API users password. Min. 8 chararacters
+    + password_confirmation (string) - Confirm password
+    + lang (string, optional) - Change language. Supported are English and German
+    
++ Request 
+
+        {
+            "name": "Name of the new user",
+            "email": "The API users email",
+            "password": "The API users password",
+            "password_confirmation": "Confirm password"
+        }
+
++ Response 200 (application/json)
+
+        [
+            {
+                "errors": false,
+                "data": {
+                    "user": {
+                        "name": "TEST",
+                        "email": "test@test.com",
+                        "updated_at": "2017-07-18 13:57:47",
+                        "created_at": "2017-07-18 13:57:47",
+                        "id": 2
+                    },
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc3RhZ2UucXJjb2RlcmVjaG51bmcuY2gvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE1MDAzODYyNjcsImV4cCI6MTUwMDM4OTg2NywibmJmIjoxNTAwMzg2MjY3LCJqdGkiOiJEVWZDTTVIbFNCVGdjRWxuIiwic3ViIjoyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-gKBZVyok3D_S8OJ8FF8QjYmjjL4W-EV-IJnY6moJfE",
+                    "message": "Welcome to QRCodeRechnung.ch"
+                }
+            }
+        ]
+        
++ Response 422 (application/json)
+
+        [
+            {
+                "message": {
+                    "name": [
+                        "The name field is required."
+                    ],
+                    "email": [
+                        "The email must be a valid email address.",
+                        "The email field is required."
+                    ],
+                    "password": [
+                        "The password must be at least 8 characters.",
+                        "The password field is required."
+                    ],
+                    "password_confirmation": [
+                        "The password confirmation does not match.",
+                    ],
+                },
+                "status":"error"
+            }
+        ]
+ 
+## Reset Password Token [/api/auth/password/email{?email}]
+
+### Get Reset Token [POST]
+
+Get reset token by means of email
+
++ Parameters
+    + email (string) - The API users email
+
++ Request 
+
+        {
+            "email": "The API users email"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"The token was sent to email",
+            "status":"ok"
+        }
+        
+## Reset User Password [/api/auth/password/reset{?email,token,password,password_confirmation}]
+
+### Reset & Create New Password [POST]
+
+Reset old password and create new password
+
++ Parameters
+    + email (string) - The API users email
+    + token (string) - Reset token
+    + password (string) - The API users password. Min 8 chars
+    + password_confirmation (string) - Confirm password
+
++ Request 
+
+        {
+            "email": "The API users email",
+            "token": "Reset token",
+            "password": "The API users password. Min 8 chars",
+            "password_confirmation": "Confirm password"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"Success. The password was changed",
+            "status":"ok"
+        }
+        
+## User [/api/v1/user]
+
+### Get User [GET]
+
+Get authenticated user
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+
++ Response 200 (application/json)
+
+        {
+            "message":"User found",
+            "status":"ok",
+            "item":{
+                "id":1,
+                "name":"Joe",
+                "email":"vk@gmail.com",
+                "stripe_id":"1",
+                "card_brand":null,
+                "card_last_four":null,
+                "trial_ends_at":null,
+                "created_at":"2017-05-15 06:18:07",
+                "updated_at":"2017-05-15 06:18:07",
+                "codes":[
+                    {
+                        "id":1,
+                        "user_id":1,
+                        "title":"T",
+                        "data":"",
+                        "created_at":"2017-05-15 06:18:20",
+                        "updated_at":"2017-05-15 06:18:20"
+                    },
+                    {
+                        "id":2,
+                        "user_id":1,
+                        "title":"Title",
+                        "data":"",
+                        "created_at":"2017-06-13 06:57:47",
+                        "updated_at":"2017-06-13 06:57:47"}
+                ],
+                "get_subscription":{
+                    "id":6,
+                    "name":"pro",
+                    "user_id":1,
+                    "credits":0,
+                    "stripe_id":"",
+                    "stripe_plan":"",
+                    "quantity":0,
+                    "trial_ends_at":null,
+                    "ends_at":null,
+                    "created_at":"2017-07-18 11:15:13",
+                    "updated_at":"2017-07-24 13:16:20"
+                }
+            },
+            "setting":{}
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"User is not found",
+            "status":"ok",
+            "item":false,
+            "setting":{}
+        }
+    
+## Credits [/api/v1/credits]
+        
+### Get Credits [GET]
+
+Get available credits for the authenticated user.
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+
++ Response 200 (application/json)
+
+        {
+            "message":"Available credits",
+            "status":"ok",
+            "item":10,
+            "setting":{}
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }
+        
+## Generate QRCode [/api/v1/qr/{type}{?output,lang,public_key,data}]
+
+### File (via POST Body) [POST]
+
+Generates the QRCode file in these formats: png, jpeg, pdf, docx, eps. Each format can be received as link to the file or as base64 encoded and embedded version.
+The formats pdf, jpg and docx include the payment part. By requesting PNG and EPS you will get the QRCode itself.
+
+Request includes data groups for Creditor (prefix cr_), Ultimate Creditor (prefix ucr_) and Ultimate Debtor (prefix ud_). Creditor is a madatory data group where as the Ultimate Creditor and Ultimate Debtor are optional. Ultimate creditor may only be used in agreement with the creditor's financial institution.
+
+
++ Parameters
+    + type (string, optional) - the format of receiving file. png|jpeg|pdf|docx|eps. png - by default
+    + output (string, optional) - 'base' or 'link' - returns base64 encoded file or link to download-ready file
+    + lang (string, optional) - 'en' or 'de' - English or German
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+
+    + Attributes
+        + size (number) - QRCode Size (300px by default)
+        + level (string) - QR Code Error correction level. Permitted values are "L" (Low), "M" (Medium), "Q" (Quartile), "H" (High). Default "M" (Medium), which means redundancy or assurance of around 15%.
+        + data
+            + qr_type (string) - Unambiguous indicator for the Swiss QR Code ("SPC" by default, Swiss Payment Code)
+            + version (string) - QRCode version ("0100" by default)
+            + coding_type (string) - Coding type ("1" by default)                                
+            + account (string) - Creditor Account (IBAN or QR-IBAN of the creditor), fixed length: 21 alphanumeric characters, only IBANs with CH or LI country
+code permitted
+            + cr_name (string) - Creditor's name or company according to the account name.
+Comment: always matches the account holder, max. 70 characters
+            + cr_street (string) - Creditor's Street/P.O., max. 70 characters (optional)
+            + cr_house_number (string) - Creditor's house number, max. 16 characters (optional)
+            + cr_postal_code (string) - Creditor's postal code. The postal code is always to be entered
+without a country code prefix, max. 16 characters (optional)
+            + cr_city (string) - Creditor's City, max. 35 characters
+            + cr_country (string) - Creditor's country code according to ISO-3166-1, 2-digits
+            + ucr_name (string) - Ultimate creditor' name or company, max. 70 characters (optional)
+            + ucr_street (string) - Ultimate creditor's street, max 70. characters (optional)
+            + ucr_house_number (string) - Ultimate creditor's house number, max. 16 characters (optional)
+            + ucr_postal_code (string) - Ultimate creditor's postal code without country code prefix, max. 16 characters (optional), max. 16 characters
+            + ucr_city (string) - Ultimate creditor's city, max. 35 characters (optional)
+            + ucr_country (string) - Ultimate creditor's country code according to ISO-3166-1, 2-digits  (optional)
+            + reference (string) - Reference number, either a QR reference or a Creditor Reference (ISO 11649).Maximum 27 characters, alphanumeric; must be filled if a QR-IBAN is used. QR reference: 27 characters, numeric, check sum calculation according to Modulo 10 recursive (27th position of the reference)                 Creditor Reference (ISO 11649): up to 25 characters, alphanumeric. The element may not be filled for the NON reference type. (optional)
+            + additional_information (string) - Unstructured message, can be used for the scheme with message and scheme with structured reference to provide additional information to the biller. Max. 140 characters (optional)
+            + ud_name (string) - Ultimate debtor's Namename or company, max. 70 characters (optional)
+            + ud_street (string) - Ultimate debtor's street, max 70. characters (optional)
+            + ud_house_number (string) - Ultimate debtor's house number, max. 16 characters (optional)
+            + ud_postal_code (string) - Ultimate debtor's postal code without country code prefix, max. 16 characters (optional), max. 16 characters
+            + ud_city (string) - Ultimate debtor's city, max. 35 characters (optional)
+            + ud_country (string) - Ultimate debtor's country code according to ISO-3166-1, 2-digits  (optional)
+            + due_date (string) - Due date on which, according to the biller, the payment should be paid, at the latest (according to the payment conditions), format dd.mm.yyyy (optional) 
+            + amount (number) - Payment amount, maximum 12-digits permitted, including decimal separators. Only decimal points ("."), (optional)
+            + currency (string) - Currency, CHF or EUR ("CHF" by default)
+            + reference_type (string) - Reference type (QR, ISO). Permitted values are: "QRR" (QR reference, default), "SCOR" (Creditor Reference ISO 11649), "NON" (without reference), max. 4 characters. By using QR-IBAN reference type must be either "QRR" or "SCOR". ("QRR" by default)
+            
+    + Body
+
+            {
+                "size":300, 
+                "level":"M", 
+                "data":{ 
+                    "qr_type":"SPC", 
+                    "version":"0100", 
+                    "coding_type":"1",
+                    "account":"CH4431999123000889012",
+                    "cr_name":"Robert Schneider AG", 
+                    "cr_street":"Rue du Lac", 
+                    "cr_house_number":"1268/2/22", 
+                    "cr_postal_code":"2501", 
+                    "cr_city":"Biel",
+                    "cr_country":"CH", 
+                    "ucr_name":"Robert Schneider Services Switzerland AG", 
+                    "ucr_street":"Rue du Lac", 
+                    "ucr_house_number":"1268/3/1", 
+                    "ucr_postal_code":"2501", 
+                    "ucr_city":"Biel", 
+                    "ucr_country":"CH", 
+                    "reference":"210000000003139471430009017", 
+                    "additional_information":"", 
+                    "ud_name":"Pia-Maria Rutschmann-Schnyder", 
+                    "ud_street":"Grosse Marktgasse", 
+                    "ud_house_number":"28", 
+                    "ud_postal_code":"9400", 
+                    "ud_city":"Rorschach", 
+                    "ud_country":"CH", 
+                    "due_date":null, 
+                    "amount":0, 
+                    "currency":"CHF", 
+                    "reference_type":"QRR" 
+                }, 
+                "mergeSize":"0.1", 
+                "include":{ 
+                    "ucr":false, 
+                    "ud":true 
+                }
+            }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"Link generated!!",
+            "status":"ok",
+            "item":"http://qrcoderechnung.ch/img/60174_tmp.pdf",
+            "setting":{
+                "credits":2
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"QR generated!!",
+            "status":"ok",
+            "item":"base64encodedstring",
+            "setting":{
+                "credits":1
+            }
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }
+        
++ Response 422 (application/json)
+
+        {
+            "message":[
+                "account":"The account format is invalid.",
+                "cr_name":"The cr name field is required.",
+                "cr_postal_code":"The cr postal code field is required.",
+                "cr_city":"The cr city field is required.",
+                "cr_country":"The cr country field is required.",
+                "currency":"The currency field is required.",
+                "reference":"The line should correspond the standard module 10."
+            ],
+            "status":"error"
+        }
+        
+### File (via URL Parameter) [GET]
+
+Generates the QRCode file in these formats: png, jpeg, pdf, docx, eps. You can use `public_key` parameter instead Authorization token.
+
+
++ Parameters
+    + type (string, optional) - the format of receiving file. png|jpeg|pdf|docx|eps. png - by default
+    + output (string, optional) - 'base' or 'link' - returns base64 encoded file or link to ready file
+    + lang (string, optional) - 'en' or 'de' - English or German
+    + public_key (string) - ex. 'qr-e8990b-7e6b9d-d84dfa-6cf5c4'
+    + data (string) - the payload, see POST call, instead of submitting values via Body supply them via 'data' parameter
+    
++ Response 200 (application/json)
+
+        {
+            "message":"Link generated!!",
+            "status":"ok",
+            "item":"http://qrcoderechnung.ch/img/60174_tmp.pdf",
+            "setting":{
+                "credits":2
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"QR generated!!",
+            "status":"ok",
+            "item":"base64encodedstring",
+            "setting":{
+                "credits":1
+            }
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }
+        
++ Response 422 (application/json)
+
+        {
+            "message":[
+                "account":"The account format is invalid.",
+                "cr_name":"The cr name field is required.",
+                "cr_postal_code":"The cr postal code field is required.",
+                "cr_city":"The cr city field is required.",
+                "cr_country":"The cr country field is required.",
+                "currency":"The currency field is required.",
+                "reference":"The line should correspond the standard module 10."
+            ],
+            "status":"error"
+        }        
+
+## Public key [/api/v1/key]
+
+### Generate [POST]
+
+It generates a public key which will let to generate qr-code. 
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+            
+            
++ Response 200 (application/json)
+
+        {
+            "message":"KEY",
+            "status":"ok",
+            "item":{
+                "key": "qr-e8990b-7e6b9d-d84dfa-6cf5c4"
+            },
+            "setting":{}
+        }
+
+### Get public key [GET]
+
+Receive your public key.
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+
++ Response 200 (application/json)
+
+        {
+            "message":"KEY",
+            "status":"ok",
+            "item":{
+                "key": "qr-e8990b-7e6b9d-d84dfa-6cf5c4"
+            },
+            "setting":{}
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }
+        
+        
+
+## Subscription [/api/v1/stripe]
+
+### Subscribe [POST]
+
+Get subscription by plan name
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+            
+    + Body
+    
+            {
+                "token":secret stripe token,
+                "plan":available plans base|basic|pro. basic - by default
+            }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"Link Generated!!",
+            "status":"ok",
+            "item":"http://qrcodrechnung.ch/img/60174_tmp.pdf",
+            "setting":{
+                "credits":2
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "message":"Payment Successful!",
+            "status":"ok",
+            "item":1000,
+            "setting":{}
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }
+        
++ Response 406 (application/json)
+
+        {
+            "message":["Token can't be obtained from context, must be specified"],
+            "status":"error"
+        }
+
+### Check subscription [GET]
+
+To check if the user is subscribed.
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+            
+        
++ Response 200 (application/json)
+
+        {
+            "message":"You are already subscribed!",
+            "status":"ok",
+            "item":true,
+            "setting":{}
+        }
+        
++ Response 200 (application/json)
+        
+        {
+            "message":"You are not subscribed!",
+            "status":"ok",
+            "item":false,
+            "setting":{}
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }
+        
+### Delete subscription [DELETE]
+
+To delete subscription.
+
++ Request 
+    + Headers
+    
+            Authorization: Bearer VALID_TOKEN
+            
+        
++ Response 200 (application/json)
+
+        {
+            "message":"Done.",
+            "status":"ok",
+            "item":User object,
+            "setting":{}
+        }
+        
++ Response 200 (application/json)
+        
+        {
+            "message":"You are not subscribed!",
+            "status":"ok",
+            "item":false,
+            "setting":{}
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "message":["User not logged in"],
+            "status":"error"
+        }

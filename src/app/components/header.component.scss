@@ -1,0 +1,64 @@
+.header {
+  width:100%;
+  margin:-25px auto;
+  box-sizing: border-box;
+  height:142px;
+  padding-top: 15px;
+  background: linear-gradient(to bottom, rgba(58,107,255,1) 0%,rgba(58,107,255,1) 0%,rgba(41,137,216,1) 50%,rgba(195,210,255,1) 100%);
+  p {
+    font-size:25px;
+    color: white;
+    margin-left:25px;
+  }
+
+  & /deep/ .mat-tab-labels {
+    display:flex!important;
+    justify-content: center;
+  }
+
+  & /deep/ .mat-ink-bar {
+    display:none!important;
+  }
+
+  & /deep/ .mat-tab-header {
+    border-bottom: 35px solid #d5d5d5;
+  }
+
+  & /deep/ .mat-tab-label {
+    opacity:1!important;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: #999999;
+    color: black;
+    font-weight: bold;
+    margin-right: 3px;
+    min-width:245px;
+    border-bottom:none!important;
+  }
+
+  & /deep/ .mat-tab-label:focus
+  {
+    background: #c0c0c0!important;
+  }
+
+
+  & /deep/ .mat-tab-label:last-child {
+    margin-right: 0;
+  }
+
+  & /deep/ .mat-tab-label-active {
+    background: #c0c0c0;
+    border-bottom-style: none !important;
+  }
+
+  & /deep/ .mat-ripple-element {
+    width:100%;
+  }
+
+
+
+}
+
+
+
+

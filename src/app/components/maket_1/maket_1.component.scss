@@ -1,0 +1,322 @@
+
+.ctrx_m1_container {
+
+  /deep/ .mat-checkbox-background {
+    background: white!important;
+    border-radius: 0!important;
+    border:1px solid black!important;
+  }
+
+  /deep/ .mat-checkbox-checkmark-path {
+    stroke: black!important;
+  }
+
+
+  & .m1forms {
+    padding: 72px 55px;
+    background-color: #eaf4ff;
+    box-sizing: border-box;
+    width:100%;
+    min-height: 1880px;
+    border-radius:20px;
+    & .logo_title {
+      min-height: 159px;
+      width: 100%;
+      max-width: 600px;
+      float:left;
+      img {
+        float:left;
+        margin-right:36px;
+      };
+    };
+    & .logo_title_2 {
+      margin-top:40px;
+      float:right;
+      width:170px;
+      max-width:170px;
+      p {
+        font-size:18px;
+      }
+    }
+
+  }
+
+
+  & .first_one {
+    min-height:200px;
+    min-width:200px;
+    margin-bottom:30px;
+  }
+
+  & .logo_title p{
+    font-size:30px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+
+  & .logo_title p:last-child{
+    font-size:16px;
+    margin-top:-20px;
+    margin-left:202px;
+  }
+
+  & .first_ul p {
+    font-size:20px;
+    font-weight: bold;
+  }
+
+  & .first_ul ol li {
+    font-size:18px;
+    margin-bottom:29px;
+  }
+
+  input {
+    padding-left:15px;
+    padding-right:15px;
+    font-size:20px;
+    height:44px;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+
+  input:focus {
+    background: #ffffd0;
+  }
+
+  & .forms {
+    margin-top:20px;
+    min-height: 507px;
+    font-size:19px;
+    form {
+      display: flex;
+      flex-direction: column;
+      & .first_form_text {
+        position: relative;
+        display:flex;
+        div:first-child {
+          width:100%;
+        }
+        //flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 15px;
+        label:first-child {
+          //margin-right:237px;
+          float:left;
+          font-size: 22px;
+        };
+        & #filing_name {
+          max-width: 645px;
+          width:645px;
+          min-width: 200px;
+          background: #ffffd0;
+        };
+
+      };
+
+      & .second_form_checkbox {
+        min-height: 100px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        //flex-wrap: wrap;
+        margin-bottom: 10px;
+        & .checks_all {
+          display: flex;
+          flex-direction: row;
+          //margin-left:135px;
+          & .checks_1 {
+            display: flex;
+            flex-direction: column;
+            margin-right:80px;
+            mat-checkbox {
+              margin-bottom: 37px;
+            };
+            mat-checkbox:last-child {
+              margin-bottom: 0;
+            }
+          };
+          & .checks_2 {
+            display: flex;
+            flex-direction: column;
+            mat-checkbox {
+              margin-bottom: 37px;
+            };
+            mat-checkbox:last-child {
+              margin-bottom: 0;
+            }
+          }
+        };
+      };
+
+      & .second_form_text_2 {
+        & .m1_num3 {
+          margin-bottom:41px;
+        }
+        & .sec_form_1 {
+          display:flex;
+          flex-direction: row;
+          margin-bottom:11px;
+          //flex-wrap: wrap;
+          input {
+            height:50px;
+            max-width: 495px;
+            width:495px;
+            min-width: 200px;
+          };
+        };
+        & .sec_form_2 {
+          display:flex;
+          flex-direction: row;
+          margin-bottom: 15px;
+          input {
+            height:50px;
+            max-width:1050px;
+            width:1050px;
+            min-width: 200px;
+          };
+        };
+
+      };
+
+      & .first_buttons {
+        display: flex;
+        flex-direction: row;
+        margin-top:23px;
+        & .all_first_btns {
+          display:flex;
+          min-width:250px;
+        };
+      };
+
+      & .second_buttons {
+        display: flex;
+        margin-top:103px;
+        min-width: 240px;
+        justify-content: center;
+        & .m1_btn_2 {
+          width:220px;
+          min-width:120px;
+        };
+      };
+
+      & .m1_sign_btn {
+        border:4px solid black;
+        margin-top:42px;
+        font-size:22px;
+        p {
+          padding-left:38px;
+        };
+        & .sign_with_pin {
+          display:flex;
+          flex-direction: row;
+          border-top:1px solid black;
+          justify-content: center;
+          color:#993300;
+          font-weight: bold;
+          padding:20px;
+          button {
+            width:240px;
+          }
+        }
+      }
+    }
+  }
+
+  & .fff {
+    max-width: 360px;
+    min-width: 360px;
+  }
+
+  & .m1_btn {
+    width:280px;
+    min-width:120px;
+    text-align: center;
+    box-sizing: border-box;
+    border:1px solid black;
+    height:65px;
+    padding: 1% 2.5%;
+    margin-right:22px;
+    font-size: 19px;
+    background: #d4d0c8;
+  };
+
+  & .m1_btn:active {
+    background: #808080;
+  }
+
+  & .m1_btn:last-child {
+    margin-right:0;
+  }
+
+  button {
+    padding: 0 !important;
+    box-sizing: border-box;
+  }
+
+  & .btn_div {
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-left:2px solid white;
+    border-top:3px solid white;
+    border-right:2px solid #808080;
+    border-bottom:2px solid #808080;
+  }
+
+  /deep/ .mat-tab-body-content {
+    overflow: hidden!important;
+  }
+
+
+
+
+  & .m1_num1 {
+    margin-bottom:25px;
+  }
+
+
+  & .m1_num2 {
+    margin-bottom:25px;
+  }
+
+
+  & .m1_error {
+    display:none;
+    margin-bottom:10px;
+    border-radius:7px;
+    color:red;
+    min-width:100px;
+    width: 100%;
+    height:44px;
+    box-sizing: border-box;
+    padding-top:11px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  & .ng-invalid {
+    input {
+      border: 2px solid red!important;
+      color: red;
+    }
+    /deep/ .mat-checkbox-background {
+      border: 2px solid red !important;
+    }
+    mat-form-field {
+      border: 2px solid red!important;
+    }
+    & .m1_error {
+      display:block;
+    }
+  }
+
+
+}
+
+
+
+
+

@@ -1,0 +1,658 @@
+<div class="ctrx_m5_container">
+    <div class="m5">
+
+        <div class="m5_h2">
+            <h2>Part II Suspicious Activity Information</h2>
+        </div>
+        <div class="m5forms">
+            <section class="m5_num1">
+                <div class="section_m5_num1_div1 ng-invalid">
+                    <div class="m5_num1_div1">
+                        <div class="m5_num1_div1_title">
+                            <p>*29 Amount involved in this report</p>
+                        </div>
+                        <div class="m5_num1_div1_forms">
+                            <div class="m5_num1_div1_form1">
+                                <mat-checkbox>Amount Unknown</mat-checkbox>
+                                <mat-checkbox>No amount involved</mat-checkbox>
+                            </div>
+                            <div class="m5_num1_div1_form2">
+                                <p>$</p>
+                                <input type="text">
+                                <p>.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m5_error" style="display: none">
+                        <span>ERROR</span>
+                    </div>
+                </div>
+
+                <div class="section_m5_num1_div2">
+                    <div class="m5_num1_div2">
+                        <div class="m5_num1_div2_title">
+                            <p>*30 Date of date range of suspicious activity for this report</p>
+                        </div>
+                        <div class="m5_num1_div2_forms">
+                            <div class="m5_num1_div2_form1">
+                                <p>From</p>
+                                <input type="text">
+                            </div>
+                            <div class="m5_num1_div2_form2">
+                                <p>To</p>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m5_error">
+                        <span>ERROR</span>
+                    </div>
+                </div>
+
+                <div class="section_m5_num1_div3">
+                    <div class="m5_num1_div3">
+                        <div class="m5_num1_div3_title">
+                            <p>31 Cumulative amount (only applicable when "Continuing activity report" is checked in Item 1)</p>
+                        </div>
+                        <div class="m5_num1_div3_form">
+                            <p>$</p>
+                            <input type="text">
+                            <p>.00</p>
+                        </div>
+                    </div>
+                    <div class="m5_error">
+                        <span>ERROR</span>
+                    </div>
+                </div>
+                <p><b>When completing item 32 throught 42, check all that apply</b></p>
+            </section>
+
+            <section class="m5_num2">
+                <div class="m5_num2_title">
+                    <p>32 Structuring</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Alters transaction to avoid BSA recordkeeping requirement</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Alters transaction to avoid CTR requirement</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious inquiry by customer regarding BSA reporting or recordkeeping requirements</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Transaction(s) below BSA recordkeeping threshold</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Transaction(s) below threshold</mat-checkbox>
+                    </li>
+                    <li value="26">
+                        <mat-checkbox>Other</mat-checkbox>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="m5_num3">
+                <div class="m5_num2_title">
+                    <p>33 Terrorist Financing</p>
+                </div>
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Known or suspected terrorist/terrorist organization</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" style="display:none">
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num4">
+                <div class="m5_num2_title">
+                    <p>34 Fraud</p>
+                </div>
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>ACH</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Advance fee</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Business loan</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Check</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Consumer loan</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Credit/Debit card</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Healthcare/Public or private</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Mail</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Mass-marketing</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Ponzi scheme</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Pyramid scheme</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Securities fraud</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Wire</mat-checkbox>
+                    </li>
+                    <li value="26">
+                        <mat-checkbox>Other</mat-checkbox>
+
+                        <input type="text" >
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num5">
+                <div class="m5_num2_title">
+                    <p>35 Gaming activities</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Chip walking</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Minimal gaminig with large transactions</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious use of counter checks or markers</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Unknown source of chips</mat-checkbox>
+                    </li>
+
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" style="display: none">
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num6">
+                <div class="m5_num2_title">
+                    <p>36 Money Laundering</p>
+                </div>
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Exchange small bills for large bills or vice versa</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Funnel account</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicion concerning the physical condition of funds</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicion concerning the source of funds</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious designation of beneficiaries, assignees or joint owners</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious EFT/wire transfers</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious exchange of currencies</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious receipt of government payments/benefits</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious use of multiple accounts</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious use of noncash monetary instruments</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious use of third-party transactors (straw-man)</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Trade Based Money Laundering/Black Market Peso Exchange</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Transaction out of pattern for customer(s)</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" style="display: none">
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num7">
+                <div class="m5_num2_title">
+                    <p>37 Identification/Documentation</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Changes spelling or arrangement of name</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Multiple individuals with same or similar identities</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Provided questionable or false documentation</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Provided questionable or false identification</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Refused or avoided request for documentation</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Single individual with multiple identities</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num8">
+                <div class="m5_num2_title">
+                    <p>38 Other Suspicious Activities</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Account takeover</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Bribery or gratuity</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Counterfeit instruments</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Elder financial exploitation</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Embezzlement/theft/disappearance of funds</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Forgeries</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Human smuggling</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Human trafficking</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Identity theft</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Little or no concern for product performance penalties, fees, or tax consequences</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Misuse of position or self-dealing</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspected public/private corruption (domestic)</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspected public/private corruption (foreign)</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious use of informal value transfer system</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious use of multiple transaction locations</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Transaction with no apparent economic, business or lawful purpose</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Transaction(s) involving foreign high risk jurisdiction</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Two or more individuals working together</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Unlicensed or unregistered MSB</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="m5_num9">
+                <div class="m5_num2_title">
+                    <p>39 Insurance</p>
+                    <button class="m5_num2_title_btn"><div>Enable this block</div></button>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Excessive insurance</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Excessive or unusual cash borrowing against policy/annuity</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Proceeds sent to or received from unrelated third party</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious life settlement sales insurance (e.g.,STOLI's, <i>Viaticals</i></mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Suspicious termination of policy or contract</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Unclear or no insurable interest</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text">
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="m5_num10">
+                <div class="m5_num2_title">
+                    <p>40 Securities/Futures/Options</p>
+                    <button class="m5_num2_title_btn"><div>Enable this block</div></button>
+                </div>
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Insider trading</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Market manipulation</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Misappropriation</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Unauthorized pooling</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Wash trading</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="m5_num11">
+                <div class="m5_num2_title">
+                    <p>41 Mortgage Fraud</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Application fraud</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Appraisal fraud</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Foreclosure/Short sale fraud</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Loan Modification fraud</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Origination fraud</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="m5_num11">
+                <div class="m5_num2_title">
+                    <p>42 Cyber event</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Against Financial Institution(s)</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Against Financial Institution Customer(s)</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num12">
+                <div class="m5_num2_title">
+                    <p>45 Where any of the following product type(s) involved in suspicious activity ? (Check all that apply)</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Bonds/Notes</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Commercial mortgage</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Commercial paper</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Credit card</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Debit card</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Deposit account</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Forex transactions</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Futures/Options on futures</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Hedge fund</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Home euity line of credit</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Home equity loan</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Insurance/Annuity products</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Microcap securities</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Mutual fund</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Options on securities</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Prepaid access</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Residential mortgage</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Security futures products</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Stocks</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Swap, hybrid, or other derivatives</mat-checkbox>
+                    </li>
+
+                    <li value="26" class="m5_last_li_column" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other (list below)</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="m5_num13">
+                <div class="m5_num2_title">
+                    <p>46 Where any of the following instrument type(s)/payment mechanism(s) involved in the suspicious activity? (Check all that apply)</p>
+                </div>
+
+                <ol type="a" class="m5_ol">
+                    <li>
+                        <mat-checkbox>Bank/Cashier's check</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Foreign currency</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Funds transfer</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Gaming instruments</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Government payment</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Money orders</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Personal/Business check</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>Travelers checks</mat-checkbox>
+                    </li>
+                    <li>
+                        <mat-checkbox>U.S. Currency</mat-checkbox>
+                    </li>
+                    <li value="26" style="margin-top:30px">
+                        <div>
+                            <mat-checkbox>Other (list below)</mat-checkbox>
+                            <input type="text" >
+                        </div>
+                    </li>
+                </ol>
+            </section>
+            <section class="m5_num13">
+                <div class="m5_num2_title">
+                    <p>43 IP Address (enter the IP address/date.timestamp of the subject's electronic internet based contact with the financial institution, if known)</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <input type="text" style="margin-left:120px; width:calc(100% - 110px)">
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <label>Date </label><input type="text" style="min-width: auto; width: calc(100% - 40px)">
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <label>Timestamp(UTC) </label><input type="text" style="min-width:auto; width: calc(100% - 125px);">
+                    </div>
+                </div>
+            </section>
+            <section class="m5_num13">
+                <div class="m5_num2_title">
+                    <p>44 Cyber Event Indicators (select the appropriate indicator(s) from the drop-down list and provide the associated supporting information)</p>
+                </div>
+                <div class="row" style="margin-bottom: 20px">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <label>Event Type</label><input type="text" style="margin-left:40px; width:calc(100% - 150px)">
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <input type="text" style="width:100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <label>Event Value </label><input type="text" style="margin-left:36px; width:calc(100% - 125px)">
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <label>Date</label><input type="text" style="min-width: auto; width: calc(100% - 35px)">
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <label>Timestamp(UTC)</label><input type="text" style="min-width:auto; width: calc(100% - 125px);">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="m5_num14">
+                <div class="row margin-20px" style="margin: 10px 10px 10px 0px">
+                    <div class="col-md-4 col-sm-4" style="padding-left: 0px">
+                        47 Commodity type (If applicable)
+                    </div>
+                    <div class="col-md-8 com-sm-8">
+                        <input type="text" style="width: 100%"> 
+                    </div>
+                </div>
+                <div class="row margin-20px" style="margin: 10px 10px 10px 0px">
+                    <div class="col-md-4 col-sm-4" style="padding-left: 0px">
+                        48 Product/Instrument description (If needed)
+                    </div>
+                    <div class="col-md-8 com-sm-8">
+                        <input type="text" style="width: 100%"> 
+                    </div>
+                </div>
+                <div class="row margin-20px" style="margin: 10px 10px 10px 0px">
+                    <div class="col-md-4 col-sm-4" style="padding-left: 0px">
+                        49 Market where traded
+                    </div>
+                    <div class="col-md-8 com-sm-8">
+                        <input type="text" style="width: 40%"> 
+                    </div>
+                </div>
+                <div class="row margin-20px" style="margin: 10px 10px 10px 0px">
+                    <div class="col-md-4 col-sm-4" style="padding-left: 0px">
+                        50 CUSIP&reg; number
+                    </div>
+                    <div class="col-md-8 com-sm-8">
+                        <input type="text" style="width: 40%"> 
+                    </div>
+                </div>
+            
+            </section>
+        </div>
+    </div>
+</div>
+
+
